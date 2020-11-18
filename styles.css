@@ -1,0 +1,40 @@
+/* button attributes as CSS variables */
+.button {
+  --btn-line-height: 44px;
+  --btn-padding-left: 10px;
+  --btn-padding-right: 10px;
+  --btn-font-size: 20px;
+  --btn-border-radius: 3px;
+}
+
+/* medium sized button */
+.button.button--medium {
+  line-height: calc(var(--btn-line-height) * 1.5) !important;
+  padding-left: calc(var(--btn-padding-left) * 2) !important;
+  padding-right: calc(var(--btn-padding-right) * 2) !important;
+  font-size: calc(var(--btn-font-size) * 1.25) !important;
+}
+/* large sized button */
+.button.button--large {
+  line-height: calc(var(--btn-line-height) * 2) !important;
+  padding-left: calc(var(--btn-padding-left) * 2.5) !important;
+  padding-right: calc(var(--btn-padding-right) * 2.5) !important;
+  font-size: calc(var(--btn-font-size) * 1.5) !important;
+}
+
+/* rounded edges button */
+.button.button--rounded {
+  border-radius: var(--btn-border-radius);
+}
+
+
+/* demo styles */
+.example.example--grid div[class*="desktop"] {
+  background: #ccc;
+  border: 1px solid #aaa;
+  padding: 5px;
+}
+
+.sample h4 {
+  padding: 30px 0 40px;
+}

@@ -1,0 +1,152 @@
+
+<h2>WAU short codes samples</h2>
+
+<div class="row sample">
+
+<h3>Row</h3>
+
+<h4>Standard row</h4>
+
+[row start css_class="example example--grid example--row"]
+
+<p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Facere, ullam iusto sapiente voluptatibus voluptatum. Maiores modi aliquid quae amet, eum tenetur fuga mollitia suscipit unde cum architecto est provident blanditiis!</p>
+
+[row finish]
+
+<h4>Row with class</h4>
+
+[row start css_class="example example--grid example--row-w-classes"]
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, deserunt dolor corporis laborum inventore beatae eaque reiciendis quod animi doloremque, iste nulla delectus, ducimus exercitationem nesciunt, molestiae saepe natus! Consequatur.</p>
+
+[row finish]
+
+<h3>Rows with columns</h3>
+
+<h4>Two columns</h4>
+
+[row start css_class="example example--grid example--two-columns"]
+  [column start width="6/12"]
+  <h5>Column 1 header</h5>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem aperiam necessitatibus, cumque perferendis commodi aut hic illum culpa vel accusamus fuga numquam molestiae rerum voluptatibus voluptate. Quam beatae, repellendus modi.</p>
+  [column finish]
+  [column start width="6/12"]
+  <h5>Column 2 header</h5>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis consectetur nostrum dolor perspiciatis labore inventore totam facere sunt adipisci natus animi iste corporis omnis deserunt molestiae, sequi culpa magni. Assumenda.</p>
+  [column finish]
+[row finish]
+
+<h4>Three columns</h4>
+
+[row start css_class="example example--grid example--three-columns"]
+  [column start width="4/12"]
+  <h5>Column 1 header</h5>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque impedit voluptas unde praesentium, error corporis, iusto odio est aperiam quia veniam. Ratione temporibus blanditiis earum qui molestias facilis, aperiam in?</p>
+  [column finish]
+  [column start width="4/12"]
+  <h5>Column 2 header</h5>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quisquam est pariatur, odio perspiciatis in praesentium molestiae obcaecati accusamus sint laborum inventore ratione. Aliquid quam nulla deleniti minus, illo eveniet?</p>
+  [column finish]
+  [column start width="4/12"]
+  <h5>Column 3 header</h5>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit necessitatibus aut exercitationem nostrum doloremque alias facilis rem id vitae. Possimus culpa, voluptatum rerum corporis eum, cum necessitatibus laborum quo voluptate?</p>
+  [column finish]
+[row finish]
+
+<h4>Nesting columns</h4>
+
+[row start]
+  [column start width="8/12" css_class="example example--grid example--nesting-columns"]
+  <h5>Column 1 header</h5>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae dicta beatae, quae magnam? Ea debitis perspiciatis, vel rerum molestiae, corrupti totam delectus temporibus tempore deleniti porro recusandae provident, nobis assumenda.</p>
+  [row start]
+    [column start width="4/12"]
+    <h5>Nested Column 1 header</h5>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consequatur dolor pariatur sapiente quisquam placeat! Aliquam, quis temporibus? Molestiae voluptate nam error officiis porro inventore fuga quo sit esse consequatur.</p>
+    [column finish]
+    [column start width="4/12"]
+    <h5>Nested Column 2 header</h5>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio numquam, ipsam nihil totam iure vel, aliquam voluptatum blanditiis iusto deleniti consequuntur ea ipsum! Aliquid doloribus excepturi quisquam delectus libero ex.</p>
+    [column finish]
+    [column start width="4/12"]
+    <h5>Nested Column 3 header</h5>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel velit labore, totam mollitia omnis voluptates, numquam consequuntur. Atque sed quos hic nulla perferendis eaque animi, magni quisquam quis consequatur possimus.</p>
+    [column finish]
+  [row finish]
+  [column finish]
+  [column start width="2/12"]
+  <h5>Column 4 header</h5>
+  <p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Distinctio aut debitis accusamus aperiam porro rem, cum officia animi accusantium suscipit ut nisi sequi assumenda inventore, vero voluptatem laboriosam adipisci earum?</p>
+  [column finish]
+[row finish]
+
+<h4>Offset</h4>
+
+[row start css_class="example example--grid example--offset"]
+  [column start width="8/12" offset="2/12"]
+  <h5>Column 1 header</h5>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, nesciunt explicabo dolor aliquam nemo quae quisquam deleniti odit, doloribus facere aspernatur placeat ducimus nihil et ex, ipsum dolorem enim quaerat.</p>
+  [row start]
+    [column start width="6/12"]
+    <h5>Nested Column 1 header</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ullam nisi provident incidunt quisquam earum illum cumque, dignissimos aliquam minus! Molestias praesentium, aliquam dignissimos iure, cumque molestiae excepturi odit deserunt.</p>
+    [column finish]
+    [column start width="6/12"]
+    <h5>Nested Column 2 header</h5>
+    <p>Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Ea ut obcaecati, quis nesciunt voluptatibus dolor pariatur atque fuga, eum provident dolorum neque suscipit, libero placeat! Sit possimus quo modi recusandae?</p>
+    [column finish]
+  [row finish]
+  [column finish]
+[row finish]
+
+<h4>Contained</h4>
+
+<p>Removes the gutter from columns.</p>
+
+[row start]
+  [column start width="8/12" offset="2/12" contained="true" css_class="example example--grid example--contained"]
+  <h5>Column 1 header</h5>
+  <p>Lorem ipsum dolor sit, amet, consectetur adipisicing elit. Inventore libero ipsam eligendi facere quo obcaecati vel ipsum praesentium ad ratione illo, dolore eius sint. Iure corrupti explicabo laudantium, dolorem eum.</p>
+  [row start]
+    [column start width="6/12" contained="true"]
+    <h5>Nested Column 1 header</h5>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque rerum dolores aliquid voluptatibus qui. Soluta quaerat, vitae, facere id ipsam vero! Minima vel neque distinctio placeat alias, voluptates quidem aut.</p>
+    [column finish]
+    [column start width="6/12" contained="true"]
+    <h5>Nested Column 2 header</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis dicta sapiente consequuntur quibusdam, nisi fugiat quae non officia mollitia ex exercitationem modi vel ea placeat nesciunt quidem, obcaecati minima aliquam.</p>
+    [column finish]
+  [row finish]
+  [column finish]
+[row finish]
+
+
+<h3>Buttons</h3>
+
+<h3>Button</h3>
+
+[button url="/collections/all" text="All Collections"]
+
+<br>
+
+[button url="/" text="Home"]
+
+<br>
+
+[button url="http://example.com/" text="Example 1" style="secondary" size="medium"]
+
+<br>
+
+[button url="http://example.com/" text="Example 2" style="secondary" size="large"]
+
+<br>
+
+[button url="http://example.com/" text="Example 3" style="secondary" size="large" rounded="true"]
+
+<br>
+
+[button url="http://example.com/" text="Example 4" style="secondary" size="large" rounded="true" css_class="my-extra-css-class"]
+
+<br>
+
+</div>

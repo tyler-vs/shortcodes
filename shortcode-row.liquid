@@ -2,27 +2,40 @@
 
 shortcode-row.liquid
 
-DESCRIPTION
+DESCRIPTION:
 
 Adds a grid row to the layout.
 
-EXAMPLE:
+ATTRIBUTES
 
-[row start]
+- start
+- finish
+- css_class
+
+Example:
+
+[row start css_class="example"]
 
 [row finish]
 
-TODO:
-
-- [ ] clearfix
 
 {% endcomment %}
 
 {% capture row %}{{variable[0]}}{% endcapture %}
+{% capture rowExtraCssClass %}{% include 'shortcode-render' render:'css_class' default:'' %}{% endcapture %}
+
+{% assign rowClasses = 'row' %}
+
+{% comment %}
+add extra classes
+{% endcomment %}
+{% if rowExtraCssClass != '' %}
+  {% assign rowClasses = rowClasses | append: ' ' | append: rowExtraCssClass %}
+{% endif %}
 
 {% case row %}
     {% when 'start' %}
-<div class="row">
+<div class="{{ rowClasses }}">
     {% when 'finish' %}
 </div><!-- /.row -->
 {% endcase %}

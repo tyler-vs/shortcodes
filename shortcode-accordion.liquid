@@ -1,0 +1,52 @@
+{% comment %}
+
+shortcode-accordion.liquid
+
+DESCRIPTION:
+
+Adds an accordion to the RTE.
+
+ATTRIBUTES
+
+- start
+- finish
+- css_class
+
+Example:
+
+[accordion start css_class="example"]
+  [accordion-item start title="First"]
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Eaque sit eveniet quas quod accusantium, quisquam sed error debitis reiciendis quae ratione itaque omnis. Exercitationem itaque fuga quia accusamus quo. Nam?</p>
+  [accordion-item finish]
+  [accordion-item start title="Second"]
+  <p>Quas autem ducimus maxime sed consectetur, repudiandae voluptates necessitatibus eos! Laudantium dignissimos molestiae nisi impedit ipsum, tempora laboriosam totam veniam? Tempore dolor at dolore, iure est unde autem eos et?</p>
+  [accordion-item finish]
+  [accordion-item start title="Third"]
+  <p>Aut minima magnam, illo saepe quidem laboriosam perspiciatis facere nesciunt doloremque vero unde. Necessitatibus hic deleniti officia esse obcaecati enim quam quasi unde voluptatibus, illo tempora voluptatum fugit debitis dicta.</p>
+  [accordion-item finish]
+[accordion finish]
+
+
+{% endcomment %}
+
+{% capture accordion %}{{variable[0]}}{% endcapture %}
+{% capture accordionExtraCssClass %}{% include 'shortcode-render' render:'css_class' default:'' %}{% endcapture %}
+
+{% assign accordionClasses = 'rte-accordion row' %}
+
+{% comment %}
+add extra classes
+{% endcomment %}
+{% if accordionExtraCssClass != '' %}
+  {% assign accordionClasses = accordionClasses | append: ' ' | append: accordionExtraCssClass %}
+{% endif %}
+
+
+
+{% case accordion %}
+    {% when 'start' %}
+<div class="{{ accordionClasses }}">
+    {% when 'finish' %}
+    {% assign accordionItemCount = 0 %}
+</div><!-- /.rte-accordion.row -->
+{% endcase %}

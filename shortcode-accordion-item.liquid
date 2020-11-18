@@ -1,0 +1,54 @@
+{% comment %}
+
+shortcode-accordion.liquid
+
+DESCRIPTION:
+
+Adds an accordion to the RTE.
+
+ATTRIBUTES
+
+- start
+- finish
+- css_class
+
+Example:
+
+
+[accordion-item start title=""]
+content
+[accordion-item finish]
+
+
+{% endcomment %}
+
+{% capture accordionItem %}{{variable[0]}}{% endcapture %}
+{% capture accordionItemTitle %}{% include 'shortcode-render' render:'title' default:'' %}{% endcapture %}
+{% capture accordionItemExtraCssClass %}{% include 'shortcode-render' render:'css_class' default:'' %}{% endcapture %}
+
+
+{% assign accordionItemTitleHtml = 'Label' %}
+{% if accordionItemTitle != '' %}
+  {% assign accordionItemTitleHtml = accordionItemTitle %}
+{% else %}
+  {% assign accordionItemTitleHtml = accordionItemTitleHtml | append: accordionItemCount %}
+{% endif %}
+
+{% comment %}
+add extra classes
+{% endcomment %}
+{% if accordionExtraCssClass != '' %}
+  {% assign accordionClasses = accordionClasses | append: ' ' | append: accordionExtraCssClass %}
+{% endif %}
+
+{% case accordionItem %}
+    {% when 'start' %}
+    {% assign accordionItemCount = accordionItemCount | plus: 1 %}
+<div class="item">
+    <input class="trigger" id="item-{{ accordionItemCount }}" type="checkbox" name="items" />
+        <label class="accordion-label" for="item-{{ accordionItemCount }}"><span class="item-heading">{{ accordionItemTitleHtml }}</span></label>
+        <div class="item-content">
+    {% when 'finish' %}
+  </div><!-- /.item-content -->
+</div><!-- /.item -->
+{% endcase %}

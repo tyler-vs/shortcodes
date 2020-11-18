@@ -1,0 +1,28 @@
+{% comment %}
+
+shortcode-row.liquid
+
+DESCRIPTION
+
+Adds a grid row to the layout.
+
+EXAMPLE:
+
+[row start]
+
+[row finish]
+
+TODO:
+
+- [ ] clearfix
+
+{% endcomment %}
+
+{% capture row %}{{variable[0]}}{% endcapture %}
+
+{% case row %}
+    {% when 'start' %}
+<div class="row">
+    {% when 'finish' %}
+</div><!-- /.row -->
+{% endcase %}

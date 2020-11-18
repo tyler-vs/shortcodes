@@ -1,0 +1,84 @@
+{% comment %}
+shortcode-button.liquid
+
+DESCRIPTION
+
+shortcode for WAU buttons
+
+ATTRIBUTES:
+
+text: button text
+url: url address
+style: secondary
+size: default/medium/large
+corners: default/true
+css_class: CSS class
+
+EXAMPLE:
+
+[button url="/collections/all" text="All Collections" style="secondary"]
+
+TODO:
+
+- [ ] rte-button class?
+- [ ] secondary-button styles are overridden by a.button styles (and !important property)
+- [ ] new window
+- [ ] icons
+- [ ] button alignment (can probably use rich text alignment instead)
+
+{% endcomment %}
+
+{% capture buttonLink %}{% include 'shortcode-render' render:'url' default:'' %}{% endcapture %}
+{% capture buttonText %}{% include 'shortcode-render' render:'text' default:'' %}{% endcapture %}
+{% capture buttonStyle %}{% include 'shortcode-render' render:'style' default:'' %}{% endcapture %}
+{% capture buttonSize %}{% include 'shortcode-render' render:'size' default:'' %}{% endcapture %}
+{% capture buttonRounded %}{% include 'shortcode-render' render:'rounded' default:'' %}{% endcapture %}
+{% capture buttonExtraCssClass %}{% include 'shortcode-render' render:'css_class' default:'' %}{% endcapture %}
+{% comment %}
+{% capture buttonNewWindow %}{% include 'shortcode-render' render:'new_window' default:'' %}{% endcapture %}
+{% capture buttonAlignment %}{% include 'shortcode-render' render:'alignment' default:'' %}{% endcapture %}
+{% endcomment %}
+
+
+{% comment %}variable to capture all class attributes added ot the button{% endcomment %}
+{% assign class_attribute = 'button' %}
+
+{% comment %}append style classes{% endcomment %}
+{% if buttonStyle != '' %}
+  {% case buttonStyle %}
+    {% when 'primary' %}
+      {% assign class_attribute = class_attribute | append: ' button-' | append: buttonStyle %}
+    {% when 'secondary' %}
+      {% assign class_attribute = class_attribute | append: ' ' | append: buttonStyle | append: '-button' %}
+    {% else %}
+      {% assign class_attribute = class_attribute | append: ' button-' | append: 'default' %}
+  {% endcase %}
+{% endif %}
+
+{% comment %}append size classes{% endcomment %}
+{% if buttonSize != '' %}
+  {% case buttonSize %}
+    {% when 'small' %}
+      {% assign class_attribute = class_attribute | append: ' button--' | append: buttonSize %}
+    {% when 'medium' %}
+      {% assign class_attribute = class_attribute | append: ' button--' | append: buttonSize %}
+    {% when 'large' %}
+      {% assign class_attribute = class_attribute | append: ' button--' | append: buttonSize %}
+    {% else %}
+      {% assign class_attribute = class_attribute | append: ' button--' | append: 'default' %}
+  {% endcase %}
+{% endif %}
+
+{% comment %}addpend rounded classes{% endcomment %}
+{% if buttonRounded != '' and buttonRounded == 'true' %}
+  {% assign class_attribute = class_attribute | append: ' button--' | append: 'rounded' %}
+{% endif %}
+
+{% comment %}append extra CSS classes{% endcomment %}
+{% if buttonExtraCssClass != '' %}
+  {% assign class_attribute = class_attribute | append: ' ' | append: buttonExtraCssClass %}
+{% endif %}
+
+<a href="{% if buttonLink != "" %}{{ buttonLink }}{% endif %}" class="{{ class_attribute }}">{% if buttonText != "" %}{{ buttonText }}{% else %}buttonLink{% endif %}</a>
+
+

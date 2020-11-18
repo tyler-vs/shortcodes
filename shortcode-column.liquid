@@ -1,0 +1,268 @@
+{% comment %}
+shortcode-column.liquid
+
+DESCRIPTION:
+
+Creates the columns using the grid
+
+ATTRIBUTES:
+
+- width: fractional use of grid column widths
+- offset: offset amount
+- contained: contained="true"
+- css_class: additonal css classes
+
+EXAMPLES:
+
+[column start width="6/12"]
+
+Lorem ipsum dolor sit amet, ...
+
+[column finish]
+
+EXAMPLE 2 COLUMNS
+
+[row start]
+  [column start width="6/12"]
+  <h3>Column 1 header</h3>
+  [column finish]
+  [column start width="6/12"]
+  <h3>Column 2 header</h3>
+  [column finish]
+[row finish]
+
+EXAMPLE THREE COLUMNS
+
+[row start]
+  [column start width="4/12"]
+  <h3>Column 1 header</h3>
+  [column finish]
+  [column start width="4/12"]
+  <h3>Column 2 header</h3>
+  [column finish]
+  [column start width="4/12"]
+  <h3>Column 3 header</h3>
+  [column finish]
+[row finish]
+
+EXAMPLE NESTED COLUMNS
+
+[row start]
+  [column start width="8/12"]
+  <h3>Column 1 header</h3>
+  [row start]
+    [column start width="4/12"]
+    <h3>Nested Column 1 header</h3>
+    [column finish]
+    [column start width="4/12"]
+    <h3>Nested Column 2 header</h3>
+    [column finish]
+    [column start width="4/12"]
+    <h3>Nested Column 3 header</h3>
+    [column finish]
+  [row finish]
+  [column finish]
+  [column start width="2/12"]
+  <h3>Column 4 header</h3>
+  [column finish]
+[row finish]
+
+EXAMPLE OFFSET
+
+[row start]
+  [column start width="8/12" offset="2/12"]
+  <h3>Column 1 header</h3>
+  [row start]
+    [column start width="6/12"]
+    <h3>Nested Column 1 header</h3>
+    [column finish]
+    [column start width="6/12"]
+    <h3>Nested Column 2 header</h3>
+    [column finish]
+  [row finish]
+  [column finish]
+[row finish]
+
+
+EXAMPLE CONTAINED
+
+Removes space between columns
+
+[row start]
+  [column start width="8/12" offset="2/12" contained="true"]
+  <h3>Column 1 header</h3>
+  [row start]
+    [column start width="6/12" contained="true"]
+    <h3>Nested Column 1 header</h3>
+    [column finish]
+    [column start width="6/12" contained="true"]
+    <h3>Nested Column 2 header</h3>
+    [column finish]
+  [row finish]
+  [column finish]
+[row finish]
+
+
+EXAMPLE css_class
+
+Adds additonal css classes
+
+[column start width="7/12" css_class="example"]
+
+TODO:
+
+- [ ] tablet / mobile
+
+{% endcomment %}
+
+{% capture column %}{{variable[0]}}{% endcapture %}
+{% capture columnWidth %}{% include 'shortcode-render' render:'width' %}{% endcapture %}
+{% capture columnOffset %}{% include 'shortcode-render' render:'offset' %}{% endcapture %}
+{% capture columnContained %}{% include 'shortcode-render' render:'contained' %}{% endcapture %}
+{% capture extraCssClasses %}{% include 'shortcode-render' render:'css_class' %}{% endcapture %}
+
+{% comment %}
+assign variable to hold columns classes
+{% endcomment %}
+{% assign columnClass = '' %}
+
+{% comment %}
+determine column width class
+{% endcomment %}
+{% assign columnWidthClass = '' %}
+{% case columnWidth %}
+  {% when '1/12' %}
+    {% assign columnWidthClass = 'desktop-1' %}
+  {% when '1' %}
+    {% assign columnWidthClass = 'desktop-1' %}
+  {% when '2/12' %}
+    {% assign columnWidthClass = 'desktop-2' %}
+  {% when '2' %}
+    {% assign columnWidthClass = 'desktop-2' %}
+  {% when '3/12' %}
+    {% assign columnWidthClass = 'desktop-3' %}
+  {% when '3' %}
+    {% assign columnWidthClass = 'desktop-3' %}
+  {% when '4/12' %}
+    {% assign columnWidthClass = 'desktop-4' %}
+  {% when '4' %}
+    {% assign columnWidthClass = 'desktop-4' %}
+  {% when '5/12' %}
+    {% assign columnWidthClass = 'desktop-5' %}
+  {% when '5' %}
+    {% assign columnWidthClass = 'desktop-5' %}
+  {% when '6/12' %}
+    {% assign columnWidthClass = 'desktop-6' %}
+  {% when '6' %}
+    {% assign columnWidthClass = 'desktop-6' %}
+  {% when '7/12' %}
+    {% assign columnWidthClass = 'desktop-7' %}
+  {% when '7' %}
+    {% assign columnWidthClass = 'desktop-7' %}
+  {% when '8/12' %}
+    {% assign columnWidthClass = 'desktop-8' %}
+  {% when '8' %}
+    {% assign columnWidthClass = 'desktop-8' %}
+  {% when '9/12' %}
+    {% assign columnWidthClass = 'desktop-9' %}
+  {% when '9' %}
+    {% assign columnWidthClass = 'desktop-9' %}
+  {% when '10/12' %}
+    {% assign columnWidthClass = 'desktop-10' %}
+  {% when '10' %}
+    {% assign columnWidthClass = 'desktop-10' %}
+  {% when '11/12' %}
+    {% assign columnWidthClass = 'desktop-11' %}
+  {% when '11' %}
+    {% assign columnWidthClass = 'desktop-11' %}
+  {% when '12/12' %}
+    {% assign columnWidthClass = 'desktop-12' %}
+  {% when '12' %}
+    {% assign columnWidthClass = 'desktop-12' %}
+{% endcase %}
+
+{% comment %}
+add column width class if available
+{% endcomment %}
+{% if columnWidthClass != '' %}
+  {% assign columnClass = columnClass | append: columnWidthClass %}
+{% endif %}
+
+{% comment %}
+add column offset
+{% endcomment %}
+{% assign columnOffsetClass = '' %}
+{% case columnOffset %}
+  {% when '1/12' %}
+    {% assign columnOffsetClass = 'desktop-push-1' %}
+  {% when '1' %}
+    {% assign columnOffsetClass = 'desktop-push-1' %}
+  {% when '2/12' %}
+    {% assign columnOffsetClass = 'desktop-push-2' %}
+  {% when '2' %}
+    {% assign columnOffsetClass = 'desktop-push-2' %}
+  {% when '3/12' %}
+    {% assign columnOffsetClass = 'desktop-push-3' %}
+  {% when '3' %}
+    {% assign columnOffsetClass = 'desktop-push-3' %}
+  {% when '4/12' %}
+    {% assign columnOffsetClass = 'desktop-push-4' %}
+  {% when '4' %}
+    {% assign columnOffsetClass = 'desktop-push-4' %}
+  {% when '5/12' %}
+    {% assign columnOffsetClass = 'desktop-push-5' %}
+  {% when '5' %}
+    {% assign columnOffsetClass = 'desktop-push-5' %}
+  {% when '6/12' %}
+    {% assign columnOffsetClass = 'desktop-push-6' %}
+  {% when '6' %}
+    {% assign columnOffsetClass = 'desktop-push-6' %}
+  {% when '7/12' %}
+    {% assign columnOffsetClass = 'desktop-push-7' %}
+  {% when '7' %}
+    {% assign columnOffsetClass = 'desktop-push-7' %}
+  {% when '8/12' %}
+    {% assign columnOffsetClass = 'desktop-push-8' %}
+  {% when '8' %}
+    {% assign columnOffsetClass = 'desktop-push-8' %}
+  {% when '9/12' %}
+    {% assign columnOffsetClass = 'desktop-push-9' %}
+  {% when '9' %}
+    {% assign columnOffsetClass = 'desktop-push-9' %}
+  {% when '10/12' %}
+    {% assign columnOffsetClass = 'desktop-push-10' %}
+  {% when '10' %}
+    {% assign columnOffsetClass = 'desktop-push-10' %}
+  {% when '11/12' %}
+    {% assign columnOffsetClass = 'desktop-push-11' %}
+  {% when '11' %}
+    {% assign columnOffsetClass = 'desktop-push-11' %}
+{% endcase %}
+
+{% comment %}
+add column offset class
+{% endcomment %}
+{% if columnOffsetClass != '' %}
+  {% assign columnClass = columnClass | append: ' ' | append: columnOffsetClass %}
+{% endif %}
+
+{% comment %}
+add column contained
+{% endcomment %}
+{% if columnContained != '' and columnContained == 'true' %}
+  {% assign columnClass = columnClass | append: ' ' | append: 'contained' %}
+{% endif %}
+
+{% comment %}
+add extra classes
+{% endcomment %}
+{% if extraCssClasses != '' %}
+  {% assign columnClass = columnClass | append: ' ' | append: extraCssClasses %}
+{% endif %}
+
+{% case column %}
+    {% when 'start' %}
+<div class="{{ columnClass }}">
+    {% when 'finish' %}
+</div>
+{% endcase %}

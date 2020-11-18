@@ -21,6 +21,8 @@ Add the following to the __Snippets__ folder:
 - [`shortcode-button.liquid`](./shortcode-button.liquid)
 - [`shortcode-row.liquid`](./shortcode-row.liquid)
 - [`shortcode-column.liquid`](./shortcode-column.liquid)
+- [`shortcode-accordion.liquid`](./shortcode-accordion.liquid)
+- [`shortcode-accordion-item.liquid`](./shortcode-accordion-item.liquid)
 
 Open the __Assets__ folder find the `stylesheet.css.liquid` file and add the [`styles.css`](./styles.css) to the bottom of the file.
 

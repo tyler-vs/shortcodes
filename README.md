@@ -23,3 +23,7 @@ Add the following to the __Snippets__ folder:
 - [`shortcode-column.liquid`](./shortcode-column.liquid)
 
 Open the __Assets__ folder find the `stylesheet.css.liquid` file and add the [`styles.css`](./styles.css) to the bottom of the file.
+
+### Styleguide sample
+
+To see what a sample of each module, create a page in the Shopify admin > change the Rich Text Editor to HTML mode and paste in the contents of the [`sample.html`](./sample.html)
